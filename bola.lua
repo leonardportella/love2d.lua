@@ -15,7 +15,7 @@ function bola:update(dt)
     bola.x = bola.x + bola.speedX * bola.accel * dt
     bola.y = bola.y + bola.speedY * bola.accel * dt
 
-    -- Colisão com player (esquerda)
+    -- colisão com player (esquerda)
     if bola.x < player.x + player.width and
        bola.y > player.y and
        bola.y < player.y + player.height then
@@ -25,7 +25,7 @@ function bola:update(dt)
         bola.accel = bola.accel + 0.1 -- aumenta a velocidade
     end
 
-    -- Colisão com player2 (direita)
+    -- colisão com player2 (direita)
     if bola.x + 10 > player2.x and
        bola.y > player2.y and
        bola.y < player2.y + player2.height then
@@ -35,7 +35,7 @@ function bola:update(dt)
         bola.accel = bola.accel + 0.1 -- aumenta a velocidade
     end
 
-    -- Reseta se passar da tela (pontuação)
+    -- reseta se passar da tela (erro)
     if bola.x < 0 or bola.x > love.graphics.getWidth() then
         bola:reset()
     end
@@ -48,7 +48,7 @@ function bola:reset()
     bola.x = love.graphics.getWidth() / 2
     bola.y = love.graphics.getHeight() / 2
 
-    -- Inverte a direção horizontal aleatoriamente
+    -- inverte a direção horizontal aleatoriamente
     if love.math.random() < 0.5 then
         bola.speedX = -500
     else
